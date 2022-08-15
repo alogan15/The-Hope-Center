@@ -4,7 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -34,6 +34,9 @@ const title={
     color:'blue'
 }
 
+const code={
+    marginLeft:'150px'
+}
 export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -127,6 +130,13 @@ export default function SignUp() {
                   autoComplete="new-password"
                 />
               </Grid>
+
+              <Link to="/verify" style={code}>
+                <Button>
+                    Enter Code
+                </Button>
+              </Link>
+
               <Grid item xs={12}>
                 <Typography>
                     <b>Account Type:</b>

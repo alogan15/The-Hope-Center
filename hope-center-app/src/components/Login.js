@@ -29,6 +29,8 @@ const title={
     color:'blue'
 }
 
+
+
 const remember={
     marginRight:'250px'
 }
@@ -59,6 +61,7 @@ export default function Login() {
             alignItems: 'center',
           }}
         >
+        <Box component="form" sx={{ mt: 3 }}>
           <Typography component="h1" variant="h3" style={title}>
             <b>The Hope Center</b>
          </Typography>
@@ -110,7 +113,9 @@ export default function Login() {
           </Box>
         </Box>
         {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
+        </Box>
       </Container>
     </ThemeProvider>
-  );
+
+  )
 }
