@@ -163,6 +163,16 @@ export default function SignUp() {
               Create Account
             </Button>
             
+            <Link to="/donateform" style={code}>
+                <Button>
+                    Donate Money
+                </Button>
+              </Link>
+              <Link to="/moneyform" style={code}>
+                <Button>
+                    Donate Product
+                </Button>
+              </Link>
           </Box>
         </Box>
         {/* <Copyright sx={{ mt: 5 }} /> */}

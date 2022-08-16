@@ -10,8 +10,11 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextFields from './Textfield';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-
-
+import FormControl from '@mui/material/FormControl';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import Stack from '@mui/material/Stack';
 
 
 const theme = createTheme();
@@ -20,10 +23,23 @@ const title={
     color:'blue'
 }
 
+const payment={
+    marginRight:'auto',
+    padding: '15px'
+}
 
+const payment2={
+    marginRight:'200px',
+    padding: '15px'
+}
 
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
+const btn={
+    marginTop:'20px'
+}
+const other={
+    marginTop:'20px',
+    marginLeft:'auto'
+}
 
 export default function MonetaryDonate() {
   const handleSubmit = (event) => {
@@ -50,6 +66,8 @@ export default function MonetaryDonate() {
          <Typography component="h1" variant="h3" style={title}>
             <b>The Hope Center</b>
          </Typography>
+         <Typography><b>Donation Form</b></Typography>
+
          
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -74,7 +92,7 @@ export default function MonetaryDonate() {
                   autoComplete="family-name"
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} >
                 <TextField
                   required
                   fullWidth
@@ -83,12 +101,17 @@ export default function MonetaryDonate() {
                   name="email"
                   autoComplete="email"
                 />
-              <Grid item xs={4}>
+              <Grid style={btn} item xs={10} sm={6}>
+
               <TextFields />
+              
               </Grid>
               </Grid>
-            <Grid>
-            <Typography>Donation Amount:</Typography>
+
+            
+            
+            <Typography style={payment}>Donation Amount:</Typography>
+            <Stack direction="row">
             <FormControlLabel
                 value="bottom"
                 control={<Checkbox />}
@@ -113,9 +136,18 @@ export default function MonetaryDonate() {
                 label="$100"
                 labelPlacement="bottom"
              />
-            </Grid>
+             <FormControl style={other} >
+                <InputLabel htmlFor="outlined-adornment-amount">Other Amount</InputLabel>
+                <OutlinedInput
+                    id="outlined-adornment-amount"
+                    startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                    label="Amount"
+            />
+        </FormControl>
+            
+            </Stack>
             <Grid>
-            <Typography>Payment Information:</Typography>
+            <Typography style={payment2}>Payment Information:</Typography>
             <FormControlLabel
                 value="bottom"
                 control={<Checkbox />}
@@ -160,7 +192,7 @@ export default function MonetaryDonate() {
                   autoComplete="card-number"
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   name="expDate"
@@ -168,7 +200,7 @@ export default function MonetaryDonate() {
                   autoComplete="exp-date"
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   name="ccv"

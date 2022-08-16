@@ -5,22 +5,24 @@ import ForgotPwd from './components/ForgotPwd';
 import Login from './components/Login';
 import Verify from './components/Verify';
 import DonateForm from './components/DonationForm';
-import TextFields from './components/Textfield';
 import MonetaryDonate from './components/MonetaryDonate';
 
 function App() {
   return (
     <div className="App">
-      {/* <Router>
+      <Router>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotpwd" element={<ForgotPwd />} />
           <Route path="/verify" element={<Verify />} />
+          <Route path="/donateform" element={<DonateForm />} />
+          <Route path="/moneyform" element={<MonetaryDonate />} />
+
         </Routes>
-      </Router> */}
-      {/* <DonateForm /> */}
-      <MonetaryDonate />
+      </Router>
+      <div></div>
+     
     </div>
   );
 }

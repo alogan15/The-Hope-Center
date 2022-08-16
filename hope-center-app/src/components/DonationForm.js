@@ -41,6 +41,7 @@ export default function DonateForm() {
          <Typography component="h1" variant="h3" style={title}>
             <b>The Hope Center</b>
          </Typography>
+         <Typography><b>Donation Form</b></Typography>
          
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -74,11 +75,12 @@ export default function DonateForm() {
                   name="email"
                   autoComplete="email"
                 />
-              
               </Grid>
-              <Grid item xs={4}>
-              <TextFields />
+
+              <Grid item xs={10} sm={6}>
+                <TextFields />
               </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   required
