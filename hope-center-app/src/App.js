@@ -9,8 +9,7 @@ import MonetaryDonate from './components/MonetaryDonate';
 import DonorHome from './components/DonorHome';
 import Dashboard from './Inventory/Dashboard';
 import ParticipantForm from './components/ParticipantForm';
-import SearchBar from './Inventory/SearchBar';
-import BookData from './Inventory/Data.json';
+
 
 
 function App() {

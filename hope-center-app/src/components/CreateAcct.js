@@ -13,30 +13,13 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 
-
-
-// function Copyright(props) {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://ncchopecenterinc.com/">
-//         Hope Center
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
-
 const theme = createTheme();
 
 const title={
     color:'blue'
 }
 
-const code={
-    marginLeft:'150px'
-}
+
 export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -159,22 +142,11 @@ export default function SignUp() {
               Create Account
             </Button>
 
-            <Link to="/verify" style={code}>
+              {/* <Link to="/verify" style={code}>
                 <Button>
                     Enter Code
                 </Button>
-              </Link>
-            
-            <Link to="/donateform" style={code}>
-                <Button>
-                    Donate Money
-                </Button>
-              </Link>
-              <Link to="/moneyform" style={code}>
-                <Button>
-                    Donate Product
-                </Button>
-              </Link>
+              </Link> */}
           </Box>
         </Box>
         {/* <Copyright sx={{ mt: 5 }} /> */}

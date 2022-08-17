@@ -1,5 +1,7 @@
-import JSONDATA from './Data.json';
-import {useState} from 'react';
+import './App.css';
+import JSONDATA from "./Data.json";
+import {useState} from 'react'
+
 
 
 function SearchBar() {
@@ -22,8 +24,6 @@ function SearchBar() {
       )
      })}
     </div>
-
   );
 }
-
 export default SearchBar;
