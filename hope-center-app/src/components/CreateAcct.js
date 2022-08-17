@@ -131,11 +131,7 @@ export default function SignUp() {
                 />
               </Grid>
 
-              <Link to="/verify" style={code}>
-                <Button>
-                    Enter Code
-                </Button>
-              </Link>
+              
 
               <Grid item xs={12}>
                 <Typography>
@@ -162,6 +158,12 @@ export default function SignUp() {
             >
               Create Account
             </Button>
+
+            <Link to="/verify" style={code}>
+                <Button>
+                    Enter Code
+                </Button>
+              </Link>
             
             <Link to="/donateform" style={code}>
                 <Button>

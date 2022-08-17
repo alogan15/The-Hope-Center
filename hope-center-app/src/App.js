@@ -6,6 +6,8 @@ import Login from './components/Login';
 import Verify from './components/Verify';
 import DonateForm from './components/DonationForm';
 import MonetaryDonate from './components/MonetaryDonate';
+import DonorHome from './components/DonorHome';
+
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
         </Routes>
       </Router>
       <div></div>
-     
+     <DonorHome />
     </div>
   );
 }

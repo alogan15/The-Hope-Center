@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import TextFields from './Textfield';
+
 
 
 const theme = createTheme();
@@ -41,11 +41,11 @@ export default function DonateForm() {
          <Typography component="h1" variant="h3" style={title}>
             <b>The Hope Center</b>
          </Typography>
-         <Typography><b>Donation Form</b></Typography>
+         <Typography><b>Incoming Donations</b></Typography>
          
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              {/* <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
@@ -65,8 +65,8 @@ export default function DonateForm() {
                   name="lastName"
                   autoComplete="family-name"
                 />
-              </Grid>
-              <Grid item xs={12}>
+              </Grid> */}
+              {/* <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -79,7 +79,7 @@ export default function DonateForm() {
 
               <Grid item xs={10} sm={6}>
                 <TextFields />
-              </Grid>
+              </Grid> */}
 
               <Grid item xs={12}>
                 <TextField
@@ -91,12 +91,14 @@ export default function DonateForm() {
                   autoComplete="name-of-item"
                 />
               </Grid>
+              Date
+             
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
                   name="quantity"
-                  label="Quantity"
+                  label="Category"
                   autoComplete="quantity"
                 />
               </Grid>
