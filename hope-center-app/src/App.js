@@ -7,6 +7,10 @@ import Verify from './components/Verify';
 import DonateForm from './components/DonationForm';
 import MonetaryDonate from './components/MonetaryDonate';
 import DonorHome from './components/DonorHome';
+import Dashboard from './Inventory/Dashboard';
+import ParticipantForm from './components/ParticipantForm';
+import SearchBar from './Inventory/SearchBar';
+import BookData from './Inventory/Data.json';
 
 
 function App() {
@@ -20,11 +24,13 @@ function App() {
           <Route path="/verify" element={<Verify />} />
           <Route path="/donateform" element={<DonateForm />} />
           <Route path="/moneyform" element={<MonetaryDonate />} />
-
+          <Route path="/donatehome" element={<DonorHome />} />
+          <Route path="/inventory" element={<Dashboard />} />
+          <Route path="/participantform" element={<ParticipantForm />} />
         </Routes>
       </Router>
-      <div></div>
-     <DonorHome />
+      {/* <div></div>
+      <SearchBar placeholder="Search Inventory..." data={BookData} /> */}
     </div>
   );
 }

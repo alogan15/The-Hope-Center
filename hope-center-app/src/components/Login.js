@@ -29,8 +29,6 @@ const title={
     color:'blue'
 }
 
-
-
 const remember={
     marginRight:'250px'
 }
@@ -91,7 +89,7 @@ export default function Login() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Link to="/donateform">
+            <Link to="/donatehome">
             <Button
               type="submit"
               variant="contained"

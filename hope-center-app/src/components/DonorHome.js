@@ -37,8 +37,7 @@ const tiers = [
     description: [
       <InventoryIcon sx={{ width:200, height: 150 }} />
     ],
-    send: <Link to='donateform'>Donate</Link>,
-    buttonText: <b>Inventory</b>,
+    send: <Link to='/inventory'><b>Inventory</b></Link>,
     buttonVariant: 'outlined',
   },
   {
@@ -48,7 +47,7 @@ const tiers = [
     description: [
       <RoomServiceIcon sx={{ width:200, height: 150 }} />
     ],
-    buttonText: <b>Incoming Donation</b>,
+    send: <Link to='/donateform'><b>Incoming Donations</b></Link>,
     buttonVariant: 'outlined',
   },
   {
@@ -57,7 +56,7 @@ const tiers = [
     description: [
       <RecordVoiceOverIcon sx={{ width:200, height: 150 }}/>
     ],
-    buttonText: <b>Participant Request</b>,
+    send: <Link to='/participantform'><b>Participant Request</b></Link>,
     buttonVariant: 'outlined',
   },
 ];
@@ -160,7 +159,7 @@ function DonorContent() {
                 </CardContent>
                 <CardActions>
                   <Button fullWidth variant={tier.buttonVariant}>
-                    
+                    {tier.send}
                     {tier.buttonText}
                   </Button>
                 </CardActions>
