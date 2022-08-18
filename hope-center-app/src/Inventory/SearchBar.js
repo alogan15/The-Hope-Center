@@ -8,7 +8,7 @@ function SearchBar() {
     <div className="App">
       <input type="text" placeholder='Search...' onChange={(event) =>{setSearchTerm(event.target.value)}}/>
      {JSONDATA.filter((val)=>{
-      if(searchTerm == ""){
+      if(searchTerm === ""){
         return val
       } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase())){
         return val

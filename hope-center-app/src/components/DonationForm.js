@@ -7,40 +7,76 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useNavigate } from 'react-router';
+import {useNavigate } from "react-router-dom";
+import * as inventoryService from '../services/InventoryService';
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 
 const theme = createTheme();
+// const formValidationSchema = yup.object({
+//   name: yup
+//     .string("enter product")
+//     .required("enter your product"),
+//   description: yup
+//     .string("enter description")
+//     .required("enter your description"),
+//   category: yup
+//     .string("enter category")
+//     .required("enter a category")
+// })
+
+
 
 const title={
     color:'blue'
 }
 
 export default function DonateForm() {
+//   const formik = useFormik({
+//     initialValues: {
+//       name: "",
+//       description: "",
+//       category: ""
+//     },
+//     validationSchema: formValidationSchema,
+//       onSubmit:(values) => {
+//         axios.post('http://localhost:8080/api/vi/inventory', values)
+//         .then(response => {
+//           console.log(response);
+//   })
+// }
+// })
+
   const navigate = useNavigate();
-  const [nameOfItem, setNameOfItem] = useState('');
-  const [quantity, setQuantity] = useState('');
+  const {id} = useParams();
+  const [name, setName] = useState('');
+  const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // const donate = {
-    //   nameOfItem: data.get('nameOfItem'),
-    //   quantity: data.get('quantity'),
-    //   description: data.get('description')
-    // };
+    const inventory = {
+      name: data.get('name'),
+      category: data.get('category'),
+      description: data.get('description')
+    };
+
+    inventoryService.createInventory(inventory)
+    .then(response => {
+      navigate("/");
+    })
+  }
 
 
-    // });
-  };
 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
+
           sx={{
             marginTop: 8,
             display: 'flex',
@@ -55,69 +91,27 @@ export default function DonateForm() {
          
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              {/* <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid> */}
-              {/* <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                //   id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
-
-              <Grid item xs={10} sm={6}>
-                <TextFields />
-              </Grid> */}
-
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="nameOfItem"
                   label="Name of Item"
-                  name="nameOfItem"
-                  autoComplete="name-of-item"
+                  name="name"
+                  autoComplete="name"
+                  autoFocus
+                  value={name}
+                  onChange= {(e) => setName(e.target.value)}
                 />
               </Grid>
-              {/* <Grid item xs={12}>
-              <TextField
-                  required
-                  fullWidth
-                  id="date"
-                  label="Date"
-                  name="date"
-                  autoComplete="date"
-                />
-              </Grid> */}
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  name="quantity"
+                  name="category"
                   label="Category"
-                  autoComplete="quantity"
+                  autoComplete="category"
+                  value={category}
+                  onChange= {(e) => setCategory(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -129,6 +123,8 @@ export default function DonateForm() {
                   name="description"
                   label="Description"
                   autoComplete="description"
+                  value={description}
+                  onChange= {(e) => setDescription(e.target.value)}
                 />
               </Grid>
             </Grid>
@@ -139,11 +135,10 @@ export default function DonateForm() {
             >
               submit
             </Button>
-            
           </Box>
         </Box>
-       
       </Container>
     </ThemeProvider>
   );
 }
+  

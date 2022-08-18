@@ -28,8 +28,6 @@ function App() {
           <Route path="/participantform" element={<ParticipantForm />} />
         </Routes>
       </Router>
-      {/* <div></div>
-      <SearchBar placeholder="Search Inventory..." data={BookData} /> */}
     </div>
   );
 }
