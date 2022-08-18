@@ -67,7 +67,7 @@ export default function TextFields() {
   return (
     <div>
       <Button
-        fullWidth
+       
         style={btn}
         id="demo-customized-button"
         aria-controls={open ? 'demo-customized-menu' : undefined}
@@ -78,7 +78,7 @@ export default function TextFields() {
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
-        Select One
+        Categories
       </Button>
       <StyledMenu
         id="demo-customized-menu"
@@ -89,18 +89,32 @@ export default function TextFields() {
         open={open}
         onClose={handleClose}
       >
-        
-        <MenuItem onClick={() => {handleClose("/donateform")}} disableRipple>
-        
-          <EditIcon />
-          
-          Product/Item
-        
+        <MenuItem disableRipple>
+        Other
         </MenuItem>
-        
-        <MenuItem onClick={() => {handleClose("/moneyform")}}  disableRipple>
-          <FileCopyIcon />
-          Monetary
+        <MenuItem disableRipple>
+         Baby
+        </MenuItem>
+        <MenuItem disableRipple>
+          Child
+        </MenuItem>
+        <MenuItem disableRipple>
+         Adult
+        </MenuItem>
+        <MenuItem disableRipple>
+          School
+        </MenuItem>
+        <MenuItem  disableRipple>
+          Perishable Items
+        </MenuItem>
+        <MenuItem disableRipple>
+         Health
+        </MenuItem>
+        <MenuItem disableRipple>
+          Sanitation
+        </MenuItem>
+        <MenuItem disableRipple>
+          Electronics
         </MenuItem>
       </StyledMenu>
     </div>

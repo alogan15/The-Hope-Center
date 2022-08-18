@@ -7,7 +7,9 @@ import {
     TableCell,
     TableHead,
     TableRow,
+    
   } from '@mui/material';
+
   
 
   const title={
@@ -32,6 +34,7 @@ export const InventoryTable = () => {
             <Typography component="h1" variant="h3" style={title}>
             <b>The Hope Center</b>
             </Typography>
+           
             <Typography>Current Inventory</Typography>
             <Table sx={{minWidth:700}}>
                 <TableHead sx={{}}>
@@ -43,10 +46,10 @@ export const InventoryTable = () => {
                       Name
                     </TableCell>
                     <TableCell>
-                        Category
+                        
                     </TableCell>
                     <TableCell>
-                       Description
+                       Category
                     </TableCell>
                 </TableRow>
                 </TableHead>

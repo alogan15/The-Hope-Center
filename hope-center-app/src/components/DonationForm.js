@@ -11,21 +11,10 @@ import {useNavigate } from "react-router-dom";
 import * as inventoryService from '../services/InventoryService';
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 
 const theme = createTheme();
-// const formValidationSchema = yup.object({
-//   name: yup
-//     .string("enter product")
-//     .required("enter your product"),
-//   description: yup
-//     .string("enter description")
-//     .required("enter your description"),
-//   category: yup
-//     .string("enter category")
-//     .required("enter a category")
-// })
-
 
 
 const title={
@@ -33,20 +22,7 @@ const title={
 }
 
 export default function DonateForm() {
-//   const formik = useFormik({
-//     initialValues: {
-//       name: "",
-//       description: "",
-//       category: ""
-//     },
-//     validationSchema: formValidationSchema,
-//       onSubmit:(values) => {
-//         axios.post('http://localhost:8080/api/vi/inventory', values)
-//         .then(response => {
-//           console.log(response);
-//   })
-// }
-// })
+
 
   const navigate = useNavigate();
   const {id} = useParams();
@@ -128,6 +104,9 @@ export default function DonateForm() {
                 />
               </Grid>
             </Grid>
+            <Link to="/donatehome">
+              <Button>back</Button>
+            </Link>
             <Button
               type="submit"
               variant="contained"
@@ -135,6 +114,7 @@ export default function DonateForm() {
             >
               submit
             </Button>
+            
           </Box>
         </Box>
       </Container>

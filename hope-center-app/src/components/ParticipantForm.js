@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 const theme = createTheme();
 const title={
@@ -121,6 +122,9 @@ export default function ParticipantForm() {
                 />
               </Grid>
             </Grid>
+            <Link to="/donatehome">
+              <Button>back</Button>
+            </Link>
             <Button
               type="submit"
               variant="contained"
