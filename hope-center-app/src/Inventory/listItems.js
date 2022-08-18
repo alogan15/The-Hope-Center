@@ -59,17 +59,6 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Inventory" />
     </ListItemButton>
-   
-
-    {/* <Search>
-    <SearchIconWrapper>
-        <SearchIcon />
-    </SearchIconWrapper>
-    <StyledInputBase
-        placeholder="...Search"
-        inputProps={{ 'aria-label': 'search' }}
-    />
-    </Search> */}
 
     <SearchBar />
     

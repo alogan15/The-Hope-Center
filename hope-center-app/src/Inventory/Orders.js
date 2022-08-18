@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import Pagination from '@mui/material/Pagination';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,10 +7,14 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Title from './Title';
 import TextFields from '../components/Textfield';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 
 
 
-
+const page={
+  padding:'10px'
+}
 
 // Generate Order Data
 function createData(id, date, name, category, paymentMethod, amount) {
@@ -33,19 +37,19 @@ const rows = [
 
   createData(
     3,
-    '01/19/2022',
+    '1/19/2022',
     'Hoodie',
     'ADULT_CLOTHING'
   ),
   createData(
     4,
-    '06/01/2022',
+    '6/01/2022',
     'Chapstick',
     'ADULT'
   ),
   createData(
     5,
-    '09/10/2022',
+    '9/10/2022',
     'Soap',
     'HYGIENE'
   )
@@ -58,6 +62,18 @@ const rows = [
 export default function Orders() {
   return (
     <React.Fragment>
+       <Box
+       backgroundColor="green"
+      
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField id="outlined-basic" label="Enter Product Name..." variant="outlined" />
+      </Box>
       <Title>Current Inventory</Title>
       <Table size="small">
         <TableHead>
@@ -77,7 +93,7 @@ export default function Orders() {
           ))}
         </TableBody>
       </Table>
-     
+      <Pagination count={4} variant="outlined" style={page}/>
     </React.Fragment>
   );
 }
