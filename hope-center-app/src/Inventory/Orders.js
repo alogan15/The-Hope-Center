@@ -80,6 +80,7 @@ export default function Orders() {
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Name</TableCell>
+            <TableCell>Remove Me</TableCell>
             <TableCell><TextFields/></TableCell>
           </TableRow>
         </TableHead>
