@@ -9,13 +9,14 @@ import MonetaryDonate from './components/MonetaryDonate';
 import DonorHome from './components/DonorHome';
 import Dashboard from './Inventory/Dashboard';
 import ParticipantForm from './components/ParticipantForm';
+import NewIncoming from './components/NewIncoming';
 
 
 
 function App() {
   return (
     <div className="App">
-      <Router>
+      {/* <Router>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
@@ -27,7 +28,8 @@ function App() {
           <Route path="/inventory" element={<Dashboard />} />
           <Route path="/participantform" element={<ParticipantForm />} />
         </Routes>
-      </Router>
+      </Router> */}
+      <NewIncoming />
     </div>
   );
 }
