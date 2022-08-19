@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const INVENTORY_BASE_API_URL = 'http://localhost:8080/api/v1/inventory';
+const INVENTORY_BASE_API_URL = 'http://localhost:8080/api/vi/productRequest';
 
 export function getAllInventory(){
     return axios.get(INVENTORY_BASE_API_URL);

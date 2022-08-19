@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from "react";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
@@ -21,6 +21,25 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import RoomServiceIcon from '@mui/icons-material/RoomService';
 import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
+import {
+  Menu,
+  MenuItem,
+  styled,
+} from "@mui/material";
+
+
+
+
+const UserBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
+  [theme.breakpoints.up("sm")]: {
+    display: "none",
+  },
+}));
+
+
 
 const appbar={
     backgroundColor:'blue'
@@ -62,6 +81,7 @@ const tiers = [
 ];
 
 function DonorContent() {
+  const [open, setOpen] = useState(false);
   return (
     <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
@@ -73,14 +93,48 @@ function DonorContent() {
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
         <Toolbar sx={{ flexWrap: 'wrap' }}>
-          <Typography style={title} variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+          <Typography style={title} variant="h6" color="inherit" noWrap sx={{ flexGrow: 1,  position:'relative',left:"-20rem"}}>
             New Castle County Hope Center, Inc.
           </Typography>
           <nav>
             <Stack direction="row" spacing={2}>
                 <SearchIcon sx={{ width:28, height: 44 }}/>
                 <NotificationsIcon sx={{ width:28, height: 44 }}/>
-                <Avatar sx={{ width:30, height: 34 }}>D</Avatar>
+            
+
+                <Avatar
+            sx={{ width: 30, height: 30 }}
+            onClick={(e) => setOpen(true)}
+          />
+       
+        <UserBox onClick={(e) => setOpen(true)}>
+          <Avatar
+            sx={{ width: 30, height: 30 }}
+          >D</Avatar>
+          <Typography variant="span">Dre</Typography>
+        </UserBox>
+     
+      <Menu
+        id="demo-positioned-menu"
+        aria-labelledby="demo-positioned-button"
+        open={open}
+        onClose={(e) => setOpen(false)}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+      >
+        {/* <MenuItem>Profile</MenuItem> */}
+        <MenuItem>Settings</MenuItem>
+        <Link to="/">
+        <MenuItem>Logout</MenuItem>
+        </Link>
+      </Menu>
+
             </Stack>
           </nav>
         </Toolbar>

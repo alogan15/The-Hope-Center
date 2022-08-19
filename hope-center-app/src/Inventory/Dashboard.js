@@ -97,7 +97,7 @@ function DashboardContent() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+            <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }} >
             New Castle County Hope Center, Inc.
           </Typography>
            

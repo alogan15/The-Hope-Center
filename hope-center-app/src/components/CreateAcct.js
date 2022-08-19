@@ -4,7 +4,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -45,9 +44,6 @@ export default function SignUp() {
          <Typography component="h1" variant="h3" style={title}>
             <b>The Hope Center</b>
          </Typography>
-          {/* <Typography component="h5" variant="h6">
-            Create Account
-          </Typography> */}
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -141,15 +137,8 @@ export default function SignUp() {
             >
               Create Account
             </Button>
-
-              {/* <Link to="/verify" style={code}>
-                <Button>
-                    Enter Code
-                </Button>
-              </Link> */}
           </Box>
         </Box>
-        {/* <Copyright sx={{ mt: 5 }} /> */}
       </Container>
     </ThemeProvider>
   );

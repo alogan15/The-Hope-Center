@@ -8,11 +8,19 @@ import TableRow from '@mui/material/TableRow';
 import TextFields from '../components/Textfield';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
+import { Button } from '@mui/material';
 
 
 
 const page={
   padding:'10px'
+}
+
+const btn2={
+  color: 'white',
+  backgroundColor:'black',
+  marginTop:'20px',
+  maxWidth:'5rem'
 }
 
 // Generate Order Data
@@ -85,8 +93,11 @@ export default function Orders() {
       }} >
         Current Inventory</h2>
       </>
-      <TextField id="outlined-basic" label="Enter Product Name..." variant="outlined" sx={{background:"white", borderRadius:"5%"}}/>
+      <Button style={btn2} variant='contained' sx={{ position:'relative',left:"-9rem"}}>search</Button>
+      <TextField id="outlined-basic" label="Enter Product Name..." variant="outlined" sx={{background:"white", borderRadius:"5%", position:'relative',left:"-30rem"}}/>
+   
       </Box>
+      
       {/* <Title>Current Inventory</Title> */}
       <Table size="small">
         <TableHead>
@@ -114,7 +125,10 @@ export default function Orders() {
 }
 
 
-
+// import React from 'react';
+// import Box from '@mui/material/Box';
+// import Button from '@mui/material/Button';
+// import TextField from '@mui/material/TextField';
 // import { useEffect, useState} from 'react';
 // import Typography from '@mui/material/Typography';
 // import * as inventoryService from '../services/InventoryService';
@@ -129,6 +143,13 @@ export default function Orders() {
 
 //   const title={
 //     color:'blue'
+// }
+
+// const btn2={
+//   color: 'white',
+//   backgroundColor:'black',
+//   marginTop:'20px',
+//   maxWidth:'5rem'
 // }
 
 // export default function Orders() {
@@ -146,6 +167,30 @@ export default function Orders() {
 
 //     return (
 //         <div >
+//           <React.Fragment>
+//        <Box
+//         backgroundColor="#1976D2"
+//        component="form"
+//        sx={{
+//          '& > :not(style)': { m: 1, width: '25ch' },
+//        }}
+//        noValidate
+//        autoComplete="off"
+//      >
+
+//  <>
+//        <h2 style={{
+//          color: "white",
+//          //textAlign:'center',
+//         marginLeft:'-3.5rem'
+//          // font-family: "Roboto"
+//        }} >
+//          Current Inventory</h2>
+//       </>
+//        <Button style={btn2} variant='contained' sx={{ position:'relative',left:"-9rem"}}>search</Button>
+//       <TextField id="outlined-basic" label="Enter Product Name..." variant="outlined" sx={{background:"white", borderRadius:"5%", position:'relative',left:"-30rem"}}/>
+   
+//        </Box>
 //             <Typography component="h1" variant="h3" style={title}>
 //             <b>The Hope Center</b>
 //             </Typography>
@@ -193,6 +238,7 @@ export default function Orders() {
 //                     }
 //                 </TableBody>
 //             </Table>
+//             </React.Fragment>
 //         </div>
 //     )
 // }

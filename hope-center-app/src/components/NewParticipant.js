@@ -2,15 +2,13 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import { Avatar, Button, Paper, TextField, Stack } from '@mui/material';
-import RoomServiceIcon from '@mui/icons-material/RoomService';
+import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 import { Link } from 'react-router-dom';
-import {useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import * as inventoryService from '../services/InventoryService';
 
 
-const NewIncoming = () => {
+
+
+const NewParticipant = () => {
  
 
     const paperStyle={
@@ -32,75 +30,87 @@ const NewIncoming = () => {
         backgroundColor:'blue',
         padding: '7px'
     }
-   
+  
   const header={
     color:'blue'
   }
 
-  const navigate = useNavigate();
-  const {id} = useParams();
-  const [name, setName] = useState('')
-  const [category, setCategory] = useState('');
-  const [description, setDescription] = useState('');
-
-  const handleSubmit = (event) => {
-    console.log("submitted")
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const inventory = {
-      name: data.get('name'),
-      category: data.get('category'),
-      description: data.get('description')
-    };
-
-    inventoryService.createInventory(inventory)
-    .then(response => {
-      navigate("/");
-    })
-
-  };
 
     return(
-      <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+      <Box component="form" noValidate sx={{ mt: 3 }}>
         <Grid >
             <Paper elevation={10} style={paperStyle} >
 
                 <Grid align="center">
-                <Avatar style={avatarStyle}><RoomServiceIcon  /></Avatar>
-                <h4 style={header}>Incoming Donations</h4>
+                <Avatar style={avatarStyle}><RecordVoiceOverIcon   /></Avatar>
+                <h4 style={header}>Participant Request Form</h4>
                 </Grid> 
                 
                 <Grid container spacing={1}>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={6}>
+                <TextField 
+                    style={textfield} 
+                    autoComplete="given-name"
+                    name="firstName"
+                    required
+                    fullWidth
+                    id="firstName"
+                    label="First Name"
+                    autoFocus
+                  >
+                  
+                </TextField>  
+                </Grid>
+
+                <Grid item xs={12} sm={6}>
                 <TextField 
                     style={textfield} 
                     required
                     fullWidth
-                    id="name"
-                    label="Name of Item"
+                    id="lastName"
+                    label="Last Name"
                     name="lastName"
                     autoComplete="family-name"
-                    value={name}
-                    onChange= {(e) => setName(e.target.value)}
                   >
                 </TextField>  
                 </Grid>
 
+                <Grid item xs={12} sm={6}>
+                <TextField 
+                    style={textfield} 
+                    required
+                    fullWidth
+                    id="room"
+                    label="Room Number"
+                    name="room"
+                    autoComplete="room"
+                >
+                </TextField>  
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                <TextField 
+                    style={textfield} 
+                    required
+                    fullWidth
+                    id="family"
+                    label="Family Size"
+                    name="family"
+                    autoComplete="family"
+                >
+                </TextField>  
+                </Grid>
                 <Grid item xs={12}>
                 <TextField 
                     style={textfield} 
                     required
                     fullWidth
-                    id="category"
-                    label="Category"
-                    name="category"
-                    autoComplete="category"
-                    value={category}
-                    onChange= {(e) => setCategory(e.target.value)}
+                    id="email"
+                    label="Email"
+                    name="email"
+                    autoComplete="email"
                 >
                 </TextField>  
                 </Grid>
-
                 <Grid item xs={12}>
                 <TextField 
                     style={textfield} 
@@ -108,12 +118,10 @@ const NewIncoming = () => {
                     fullWidth
                     rows={4}
                     multiline
-                    id="description"
-                    label="Description"
-                    name="description"
-                    autoComplete="description"
-                    value={description}
-                    onChange= {(e) => setDescription(e.target.value)}
+                    id="items"
+                    label="Items Needed"
+                    name="items"
+                    autoComplete="items"
                 >
                 </TextField>
                 </Grid>
@@ -125,6 +133,8 @@ const NewIncoming = () => {
                     color="primary" 
                     variant="contained" 
                     style={btnstyle}
+                  
+                   
                 > 
                     Submit
                 </Button>
@@ -145,4 +155,4 @@ const NewIncoming = () => {
     )
 }
 
-export default NewIncoming;
+export default NewParticipant;
