@@ -21,6 +21,10 @@ const title={
     color:'blue'
 }
 
+const btn2={
+  
+}
+
 export default function DonateForm() {
 
 
@@ -105,7 +109,7 @@ export default function DonateForm() {
               </Grid>
             </Grid>
             <Link to="/donatehome">
-              <Button>back</Button>
+              <Button variant="contained" style={btn2}>back</Button>
             </Link>
             <Button
               type="submit"

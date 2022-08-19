@@ -5,7 +5,6 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Title from './Title';
 import TextFields from '../components/Textfield';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -17,8 +16,8 @@ const page={
 }
 
 // Generate Order Data
-function createData(id, date, name, category, paymentMethod, amount) {
-  return { id, date, name, category, paymentMethod, amount };
+function createData(id, date, name, category, description, amount) {
+  return { id, date, name, category, description, amount };
 }
 
 const rows = [
@@ -26,32 +25,37 @@ const rows = [
     0,
     '8/16/2022',
     'Diapers',
-    'BABY_DIAPER'
+    'BABY_DIAPER',
+    'Size 1'
   ),
   createData(
     1,
     '7/20/2022',
     'Radio',
-    'ELECTRONICS'
+    'ELECTRONICS',
+    'Set of 3'
   ),
 
   createData(
     3,
     '1/19/2022',
     'Hoodie',
-    'ADULT_CLOTHING'
+    'ADULT_CLOTHING',
+    'Size XL'
   ),
   createData(
     4,
     '6/01/2022',
     'Chapstick',
-    'ADULT'
+    'ADULT',
+    '12 Packs of 2'
   ),
   createData(
     5,
     '9/10/2022',
     'Soap',
-    'HYGIENE'
+    'HYGIENE',
+    'Dove Sensitive Skin'
   )
 ];
 
@@ -63,8 +67,7 @@ export default function Orders() {
   return (
     <React.Fragment>
        <Box
-       backgroundColor="green"
-      
+       backgroundColor="#1976D2"
       component="form"
       sx={{
         '& > :not(style)': { m: 1, width: '25ch' },
@@ -72,16 +75,26 @@ export default function Orders() {
       noValidate
       autoComplete="off"
     >
-      <TextField id="outlined-basic" label="Enter Product Name..." variant="outlined" />
+
+<>
+      <h2 style={{
+        color: "white",
+        //textAlign:'center',
+        marginLeft:'-3.5rem'
+        // font-family: "Roboto"
+      }} >
+        Current Inventory</h2>
+      </>
+      <TextField id="outlined-basic" label="Enter Product Name..." variant="outlined" sx={{background:"white", borderRadius:"5%"}}/>
       </Box>
-      <Title>Current Inventory</Title>
+      {/* <Title>Current Inventory</Title> */}
       <Table size="small">
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Name</TableCell>
-            <TableCell>Remove Me</TableCell>
             <TableCell><TextFields/></TableCell>
+            <TableCell>Description</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -90,6 +103,7 @@ export default function Orders() {
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.category}</TableCell>
+              <TableCell>{row.description}</TableCell>
             </TableRow>
           ))}
         </TableBody>
