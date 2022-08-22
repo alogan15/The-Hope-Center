@@ -43,7 +43,7 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Incoming Donations" />
     </ListItemButton>
-    <SearchBar />
+    {/* <SearchBar /> */}
     
   </React.Fragment>
 );

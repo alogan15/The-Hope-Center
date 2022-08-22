@@ -46,9 +46,14 @@ const appbar={
 }
 
 const title={
-    marginRight:'600px'
+    marginRight:'60px'
 }
 
+const header={
+  color:'black',
+  marginRight:'-10rem',
+  marginTop:'150px'
+}
 const tiers = [
   {
     title: '',
@@ -145,14 +150,15 @@ function DonorContent() {
           component="h1"
           variant="h2"
           align="center"
-          color="text.primary"
+          // color="text.primary"
+          style={header}
           gutterBottom
         >
-          Inventory Management System
+          <b>Inventory Management System</b>
         </Typography>
-        <Typography variant="h6" align="left" color="text.secondary" component="p">
+        {/* <Typography variant="h6" align="left" color="text.secondary" component="p">
           What would you like to do:
-        </Typography>
+        </Typography> */}
       </Container>
       {/* End hero unit */}
       <Container maxWidth="md" component="main">

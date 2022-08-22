@@ -139,6 +139,7 @@ export default function Orders() {
 //     TableHead,
 //     TableRow,
 //   } from '@mui/material';
+
   
 
 //   const title={
@@ -153,6 +154,7 @@ export default function Orders() {
 // }
 
 // export default function Orders() {
+    
 //     const [inventory, setInventory]= useState([]);
    
 
@@ -205,7 +207,7 @@ export default function Orders() {
 //                       Name
 //                     </TableCell>
 //                     <TableCell>
-//                         Category
+//                         Category Type
 //                     </TableCell>
 //                     <TableCell>
 //                        Description
@@ -227,7 +229,7 @@ export default function Orders() {
 //                                         {table.name}
 //                                     </TableCell>
 //                                     <TableCell>
-//                                         {table.category}
+//                                         {table.categoryType}
 //                                     </TableCell>
 //                                     <TableCell>
 //                                         {table.description}

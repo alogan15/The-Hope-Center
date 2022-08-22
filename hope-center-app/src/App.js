@@ -13,8 +13,10 @@ import NewParticipant from './components/NewParticipant';
 
 
 function App() {
+  
   return (
     <div className="App">
+      <div className='image'>
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -28,7 +30,7 @@ function App() {
           <Route path="/participantform" element={<NewParticipant />} />
         </Routes>
       </Router>
-   
+      </div>
     </div>
   );
 }

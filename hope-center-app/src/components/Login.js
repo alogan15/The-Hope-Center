@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+
 // function Copyright(props) {
 //   return (
 //     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -30,12 +31,25 @@ const title={
 }
 
 const remember={
-    marginRight:'250px'
+    marginRight:'25rem',
+    marginLeft:'-1rem'
+    
 }
 
 const forgot={
-    marginRight:'150px'
+    marginRight:'50px',
+    color:'black'
 }
+
+const create={
+    color:'black'
+}
+
+const forms={
+  marginLeft:'80rem'
+}
+
+
 
 export default function Login() {
   const handleSubmit = (event) => {
@@ -47,8 +61,13 @@ export default function Login() {
     });
   };
 
+
+
+
   return (
+    
     <ThemeProvider theme={theme}>
+    
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -58,10 +77,12 @@ export default function Login() {
             flexDirection: 'column',
             alignItems: 'center',
           }}
+          
         >
-        <Box component="form" sx={{ mt: 3 }}>
+         
+        <Box component="form" sx={{ mt: 3 }} style={forms}>
           <Typography component="h1" variant="h3" style={title}>
-            <b>The Hope Center</b>
+            {/* <b>The Hope Center</b> */}
          </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -73,6 +94,7 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              variant='filled'
             />
             <TextField
               margin="normal"
@@ -83,6 +105,7 @@ export default function Login() {
               type="password"
             //   id="password"
               autoComplete="current-password"
+              variant='filled'
             />
             <FormControlLabel
               style={remember}
@@ -105,7 +128,7 @@ export default function Login() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link to="/signup" >
+                <Link to="/signup" style={create}>
                   Create Account
                 </Link>
               </Grid>

@@ -11,13 +11,18 @@ import * as inventoryService from '../services/InventoryService';
 
 
 const NewIncoming = () => {
- 
+  
+    const form={
+    
+      marginTop:'5rem'
+    }
 
     const paperStyle={
         padding: "20px",
         height: 'auto',
         width: 380,
-        margin: "20px auto"
+        margin: "20px auto",
+        
     }
     const avatarStyle={
         backgroundColor: "blue"
@@ -40,28 +45,30 @@ const NewIncoming = () => {
   const navigate = useNavigate();
   const {id} = useParams();
   const [name, setName] = useState('')
-  const [category, setCategory] = useState('');
-  const [description, setDescription] = useState('');
+  const [categoryType, setCategoryType] = useState('')
+  const [description, setDescription] = useState('')
 
   const handleSubmit = (event) => {
-    console.log("submitted")
+    console.log("submitted HERE")
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const inventory = {
       name: data.get('name'),
-      category: data.get('category'),
+      categoryType: data.get('categoryType'),
       description: data.get('description')
     };
 
     inventoryService.createInventory(inventory)
     .then(response => {
-      navigate("/");
+      navigate("/inventory");
     })
 
   };
 
     return(
-      <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+      
+      <Box style={form} component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+         
         <Grid >
             <Paper elevation={10} style={paperStyle} >
 
@@ -91,12 +98,12 @@ const NewIncoming = () => {
                     style={textfield} 
                     required
                     fullWidth
-                    id="category"
-                    label="Category"
-                    name="category"
+                    id="categoryType"
+                    label="Category Type"
+                    name="categoryType"
                     autoComplete="category"
-                    value={category}
-                    onChange= {(e) => setCategory(e.target.value)}
+                    value={categoryType}
+                    onChange= {(e) => setCategoryType(e.target.value)}
                 >
                 </TextField>  
                 </Grid>
