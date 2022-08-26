@@ -10,20 +10,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-
-// function Copyright(props) {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://ncchopecenterinc.com/">
-//         Hope Center
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
+import { Paper } from '@mui/material';
 
 const theme = createTheme();
 const title={
@@ -31,9 +18,12 @@ const title={
 }
 
 const remember={
-    marginRight:'25rem',
-    marginLeft:'-1rem'
-    
+    marginRight:'5rem'
+}
+
+const btn={
+  marginTop:'6rem',
+  marginLeft:'-5rem'
 }
 
 const forgot={
@@ -45,8 +35,8 @@ const create={
     color:'black'
 }
 
-const forms={
-  marginLeft:'80rem'
+const box={
+  marginTop:'35rem'
 }
 
 
@@ -76,11 +66,13 @@ export default function Login() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            width: 500,
+            height: 200,
           }}
           
         >
-         
-        <Box component="form" sx={{ mt: 3 }} style={forms}>
+         <Paper elevation={24} style={box}>
+        <Box component="form" sx={{ mt: 3 }}>
           <Typography component="h1" variant="h3" style={title}>
             {/* <b>The Hope Center</b> */}
          </Typography>
@@ -108,12 +100,13 @@ export default function Login() {
               variant='filled'
             />
             <FormControlLabel
-              style={remember}
+              // style={remember}
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Link to="/donatehome">
             <Button
+              style={btn}
               type="submit"
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
@@ -135,7 +128,7 @@ export default function Login() {
             </Grid>
           </Box>
         </Box>
-        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
+        </Paper>
         </Box>
       </Container>
     </ThemeProvider>

@@ -5,7 +5,7 @@
 }
 
 .image {
-  background-image: url("/Users/andrelogan/dev/The-Hope-Center/hope-center-app/src/hopecenterimage.jpg");
+  background-image: url("../public/hopecenterimage.jpg");
   height: 100vh;
   position:static;
   margin-top: -5rem;
