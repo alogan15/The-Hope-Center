@@ -5,7 +5,6 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-
 const StyledMenu = styled((props) => (
   <Menu
     elevation={0}
@@ -47,36 +46,29 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-
-const btn={
-    marginLeft:'1px'
-}
-export default function TextFields() {
+export default function DropDown() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
-  function handleClose(nav) {
-    window.location.href = nav;
-}
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <div>
       <Button
-       
-        style={btn}
         id="demo-customized-button"
         aria-controls={open ? 'demo-customized-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
-        variant="outlined"
+        variant="contained"
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
-        Categories
+        Account Type:
       </Button>
       <StyledMenu
         id="demo-customized-menu"
@@ -87,33 +79,20 @@ export default function TextFields() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem disableRipple>
-        Other
+        <MenuItem onClick={handleClose} disableRipple>
+          
+          Donor
         </MenuItem>
-        <MenuItem disableRipple>
-         Baby
+        <MenuItem onClick={handleClose} disableRipple>
+          
+          Case Mgr
         </MenuItem>
-        <MenuItem disableRipple>
-          Child
+       
+        <MenuItem onClick={handleClose} disableRipple>
+        
+          HC Staff
         </MenuItem>
-        <MenuItem disableRipple>
-         Adult
-        </MenuItem>
-        <MenuItem disableRipple>
-          School
-        </MenuItem>
-        <MenuItem  disableRipple>
-          Perishable Items
-        </MenuItem>
-        <MenuItem disableRipple>
-         Health
-        </MenuItem>
-        <MenuItem disableRipple>
-          Sanitation
-        </MenuItem>
-        <MenuItem disableRipple>
-          Electronics
-        </MenuItem>
+        
       </StyledMenu>
     </div>
   );

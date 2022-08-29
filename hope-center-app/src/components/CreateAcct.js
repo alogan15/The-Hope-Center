@@ -2,13 +2,12 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import DropDown from './DropDown';
 
 
 
@@ -110,24 +109,8 @@ export default function SignUp() {
                 />
               </Grid>
 
-              
-
               <Grid item xs={12}>
-                <Typography>
-                    <b>Account Type:</b>
-                </Typography>
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="Donor"
-                />
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="HC Staff"
-                />
-                <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="Case Manager"
-                />
+              <DropDown />
               </Grid>
             </Grid>
             <Button

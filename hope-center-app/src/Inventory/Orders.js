@@ -11,7 +11,6 @@ import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 
 
-
 const page={
   padding:'10px'
 }
@@ -106,6 +105,12 @@ export default function Orders() {
             <TableCell>Name</TableCell>
             <TableCell><TextFields/></TableCell>
             <TableCell>Description</TableCell>
+            <TableCell>Priority Need</TableCell>
+            <TableCell>Qty Type</TableCell>
+            <TableCell>Qty On Hand</TableCell>
+            <TableCell>Min. Qty</TableCell>
+            <TableCell>Max. Qty</TableCell>
+            <TableCell>Min. Order Qty</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -115,6 +120,12 @@ export default function Orders() {
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.category}</TableCell>
               <TableCell>{row.description}</TableCell>
+              <TableCell>{row.priorNeed}</TableCell>
+              <TableCell>{row.qtyType}</TableCell>
+              <TableCell>{row.qtyOnHand}</TableCell>
+              <TableCell>{row.minQty}</TableCell>
+              <TableCell>{row.maxQty}</TableCell>
+              <TableCell>{row.minOrderQty}</TableCell>
             </TableRow>
           ))}
         </TableBody>

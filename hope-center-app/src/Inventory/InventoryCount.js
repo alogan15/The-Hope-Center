@@ -11,10 +11,7 @@ import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Stack } from '@mui/system';
-import {useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import * as inventoryService from '../services/InventoryService';
+
 
 
 const theme = createTheme({
@@ -35,51 +32,13 @@ const avatarStyle={
 
 
 
-export default function NewIncoming() {
-  const navigate = useNavigate();
-  const {id} = useParams();
-  const [name, setName] = useState('')
-  const [categoryType, setCategoryType] = useState('')
-  const [description, setDescription] = useState('')
-
-const handleSubmit = (event) => {
-  console.log("submitted HERE")
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  const inventory = {
-    name: data.get('name'),
-    categoryType: data.get('categoryType'),
-    description: data.get('description')
-  };
-
-  inventoryService.createInventory(inventory)
-  .then(response => {
-    navigate("/inventory");
-  })
-
-};
-
-
+export default function InventoryCount() {
 
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage: 'url(https://www.newcastlede.gov/ImageRepository/Document?documentID=46217)',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            
-          }}
-        />
+      
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -92,9 +51,9 @@ const handleSubmit = (event) => {
           >
              <Avatar style={avatarStyle}><RoomServiceIcon  /></Avatar>
             <Typography component="h3" variant="h4" style={title}>
-            Incoming Donations
+           Inventory Count
          </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -104,19 +63,18 @@ const handleSubmit = (event) => {
                 name="name"
                 autoComplete="name"
                 autoFocus
-                value={name}
-                onChange= {(e) => setName(e.target.value)}
+               
+               
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                name="category"
+               
                 label="Category"
                 id="category"
                 autoComplete="category"
-                value={categoryType}
-                onChange= {(e) => setCategoryType(e.target.value)}
+               
               />
               <TextField
                 margin="normal"
@@ -124,27 +82,21 @@ const handleSubmit = (event) => {
                 fullWidth
                 rows={5}
                 multiline
-                name="description"
+               
                 label="Description"
                 id="description"
                 autoComplete="description"
-                value={description}
-                onChange= {(e) => setDescription(e.target.value)}
+               
               />
-              <Stack>
               <Link to="/donatehome">
               <Button
                 type="submit"
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Submit
+                Save
               </Button>
               </Link>
-                <Link to="/donatehome">
-                    <Button>back</Button>
-                 </Link>
-              </Stack>
               <Grid container>
               </Grid>
             </Box>
