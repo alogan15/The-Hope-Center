@@ -18,19 +18,19 @@ import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 const tiers = [
   {
     title: 'Incoming Donations',
-    image: require('/Users/andrelogan/dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
+    image: require('/Users/kalyn/dev/Hope Center/The-Hope-Center/hope-center-app/src/incoming.jpg'),
     buttonText: <Link to='/donateform'><RoomServiceIcon sx={{ width:50, height: 50 }} /></Link>,
     buttonVariant: 'outlined',
   },
   {
     title: 'Inventory',
-    image: require('/Users/andrelogan/dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
+    image: require('/Users/kalyn/dev/Hope Center/The-Hope-Center/hope-center-app/src/incoming.jpg'),
     buttonText: <Link to='/inventory'><InventoryIcon sx={{ width:50, height: 50 }} /></Link>,
     buttonVariant: 'outlined',
   },
   {
     title: 'Participant Request',
-    image: require('/Users/andrelogan/dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
+    image: require('/Users/kalyn/dev/Hope Center/The-Hope-Center/hope-center-app/src/incoming.jpg'),
     buttonText: <Link to='/participantform'><RecordVoiceOverIcon sx={{ width:50, height: 50 }}/></Link>,
     buttonVariant: 'outlined',
   },
