@@ -16,7 +16,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import * as inventoryService from '../services/InventoryService';
 
-
+export default function NewIncoming() {
 const theme = createTheme({
   typography:{
       allVariants: {
@@ -35,12 +35,13 @@ const avatarStyle={
 
 
 
-export default function NewIncoming() {
+
   const navigate = useNavigate();
   const {id} = useParams();
   const [name, setName] = useState('')
-  const [categoryType, setCategoryType] = useState('')
+  const [category, setcategoryType] = useState('')
   const [description, setDescription] = useState('')
+  const [quantityType, setQuantityType] = useState('')
 
 const handleSubmit = (event) => {
   console.log("submitted HERE")
@@ -48,8 +49,10 @@ const handleSubmit = (event) => {
   const data = new FormData(event.currentTarget);
   const inventory = {
     name: data.get('name'),
-    categoryType: data.get('categoryType'),
+
+    category: data.get('category'),
     description: data.get('description')
+
   };
 
   inventoryService.createInventory(inventory)
@@ -90,10 +93,10 @@ const handleSubmit = (event) => {
               alignItems: 'center',
             }}
           >
-             <Avatar style={avatarStyle}><RoomServiceIcon  /></Avatar>
-            <Typography component="h3" variant="h4" style={title}>
+          <Avatar style={avatarStyle}><RoomServiceIcon  /></Avatar>
+          <Typography component="h3" variant="h4" style={title}>
             Incoming Donations
-         </Typography>
+          </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
@@ -112,12 +115,13 @@ const handleSubmit = (event) => {
                 required
                 fullWidth
                 name="category"
-                label="Category"
+                label="Category Type"
                 id="category"
                 autoComplete="category"
-                value={categoryType}
-                onChange= {(e) => setCategoryType(e.target.value)}
+                value={category}
+                onChange= {(e) => setcategoryType(e.target.value)}
               />
+              
               <TextField
                 margin="normal"
                 required
@@ -131,8 +135,18 @@ const handleSubmit = (event) => {
                 value={description}
                 onChange= {(e) => setDescription(e.target.value)}
               />
+              <TextField
+                margin="normal"
+                required
+                name="quantityType"
+                label="Quantity Type"
+                id="quantityType"
+                autoComplete="quantityType"
+                value={quantityType}
+                onChange= {(e) => setQuantityType(e.target.value)}
+              />
               <Stack>
-              <Link to="/donatehome">
+              {/* <Link to="/donatehome"> */}
               <Button
                 type="submit"
                 variant="contained"
@@ -140,7 +154,7 @@ const handleSubmit = (event) => {
               >
                 Submit
               </Button>
-              </Link>
+              {/* </Link> */}
                 <Link to="/donatehome">
                     <Button>back</Button>
                  </Link>
