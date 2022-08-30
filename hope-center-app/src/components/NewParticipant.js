@@ -15,19 +15,6 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://ncchopecenterinc.com/">
-       NCC Hope Center, Inc.
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const theme = createTheme({
     typography:{
         allVariants: {
@@ -221,7 +208,7 @@ export default function NewParticipant() {
                 helperText= {formik.touched.itemsNeeded && formik.errors.itemsNeeded}
               />
               <Stack>
-              {/* <Link to=""> */}
+
               <Button
                 type="submit"
                 variant="contained"
@@ -229,7 +216,7 @@ export default function NewParticipant() {
               >
                 Submit
               </Button>
-              {/* </Link> */}
+
                 <Link to="/donatehome">
                     <Button>back</Button>
                  </Link>

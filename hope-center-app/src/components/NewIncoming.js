@@ -41,7 +41,7 @@ const avatarStyle={
   const [name, setName] = useState('')
   const [category, setcategoryType] = useState('')
   const [description, setDescription] = useState('')
-  const [quantityType, setQuantityType] = useState('')
+  // const [quantityType, setQuantityType] = useState('')
 
 const handleSubmit = (event) => {
   console.log("submitted HERE")
@@ -49,9 +49,9 @@ const handleSubmit = (event) => {
   const data = new FormData(event.currentTarget);
   const inventory = {
     name: data.get('name'),
-
-    category: data.get('category'),
-    description: data.get('description')
+    categoryType: data.get('categoryType'),
+    description: data.get('description'),
+    // quantityType: data.get('quantityType')
 
   };
 
@@ -135,7 +135,7 @@ const handleSubmit = (event) => {
                 value={description}
                 onChange= {(e) => setDescription(e.target.value)}
               />
-              <TextField
+              {/* <TextField
                 margin="normal"
                 required
                 name="quantityType"
@@ -144,9 +144,9 @@ const handleSubmit = (event) => {
                 autoComplete="quantityType"
                 value={quantityType}
                 onChange= {(e) => setQuantityType(e.target.value)}
-              />
+              /> */}
               <Stack>
-              {/* <Link to="/donatehome"> */}
+
               <Button
                 type="submit"
                 variant="contained"
@@ -154,7 +154,7 @@ const handleSubmit = (event) => {
               >
                 Submit
               </Button>
-              {/* </Link> */}
+
                 <Link to="/donatehome">
                     <Button>back</Button>
                  </Link>
