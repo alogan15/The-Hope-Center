@@ -19,7 +19,7 @@ const tiers = [
   {
     title: 'Incoming Donations',
 
-    image: require('/Dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
+    // image: require('/Dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
 
     image: require('../Images/incoming.jpg'),
 
@@ -29,14 +29,14 @@ const tiers = [
   {
     title: 'Inventory',
 
-    image: require('/Dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
+    // image: require('/Dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
     image: require('../Images/incoming.jpg'),
     buttonText: <Link to='/inventory'><InventoryIcon sx={{ width:50, height: 50 }} /></Link>,
     buttonVariant: 'outlined',
   },
   {
     title: 'Participant Request',
-    image: require('/Dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
+    // image: require('/Dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
     image: require('../Images/incoming.jpg'),
     buttonText: <Link to='/participantform'><RecordVoiceOverIcon sx={{ width:50, height: 50 }}/></Link>,
     buttonVariant: 'outlined',

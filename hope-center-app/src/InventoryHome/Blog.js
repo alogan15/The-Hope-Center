@@ -22,7 +22,7 @@ const mainFeaturedPost = {
    "",
 
 
-  image: require('/Dev/The-Hope-Center/hope-center-app/src/HCTitle.png'),
+  // image: require('/Dev/The-Hope-Center/hope-center-app/src/HCTitle.png'),
 
 
   image: require('../Images/HCTitle.png'),
