@@ -41,6 +41,7 @@ const avatarStyle={
   const [name, setName] = useState('')
   const [category, setcategoryType] = useState('')
   const [description, setDescription] = useState('')
+  const [quantityType, setQuantityType] = useState('')
 
 const handleSubmit = (event) => {
   console.log("submitted HERE")
@@ -48,8 +49,10 @@ const handleSubmit = (event) => {
   const data = new FormData(event.currentTarget);
   const inventory = {
     name: data.get('name'),
+
     category: data.get('category'),
     description: data.get('description')
+
   };
 
   inventoryService.createInventory(inventory)
@@ -90,10 +93,10 @@ const handleSubmit = (event) => {
               alignItems: 'center',
             }}
           >
-             <Avatar style={avatarStyle}><RoomServiceIcon  /></Avatar>
-            <Typography component="h3" variant="h4" style={title}>
+          <Avatar style={avatarStyle}><RoomServiceIcon  /></Avatar>
+          <Typography component="h3" variant="h4" style={title}>
             Incoming Donations
-         </Typography>
+          </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
@@ -131,6 +134,16 @@ const handleSubmit = (event) => {
                 autoComplete="description"
                 value={description}
                 onChange= {(e) => setDescription(e.target.value)}
+              />
+              <TextField
+                margin="normal"
+                required
+                name="quantityType"
+                label="Quantity Type"
+                id="quantityType"
+                autoComplete="quantityType"
+                value={quantityType}
+                onChange= {(e) => setQuantityType(e.target.value)}
               />
               <Stack>
               {/* <Link to="/donatehome"> */}
