@@ -164,10 +164,25 @@ const btn2={
   maxWidth:'5rem'
 }
 
+
+const handleSubmit = (event) => {
+  console.log("submitted HERE")
+  event.preventDefault();
+   const table = new FormData(event.currentTarget);
+  // const inventory = {
+  //   name: data.get('name'),
+  //   category: data.get('category'),
+  //   description: data.get('description')
+  };
+
+
+
+
 export default function Orders() {
     
     const [inventory, setInventory]= useState([]);
    
+
 
     useEffect(()=> {
         inventoryService.getAllInventory()
@@ -176,6 +191,8 @@ export default function Orders() {
         })
     }, [])
   
+
+
 
 
     return (
@@ -190,6 +207,7 @@ export default function Orders() {
        noValidate
        autoComplete="off"
      >
+
 
  <>
        <h2 style={{
@@ -221,26 +239,13 @@ export default function Orders() {
                         Category Type
                     </TableCell>
                     <TableCell>
+
+                      Quantitiy
+                    </TableCell>
+                    <TableCell>
                        Description
                     </TableCell>
-                    <TableCell>
-                      Priority Need
-                    </TableCell>
-                    <TableCell>
-                          Qty Type
-                      </TableCell>
-                    <TableCell>
-                          Qty On Hand
-                      </TableCell>
-                    <TableCell>
-                          Min. Qty
-                      </TableCell>
-                    <TableCell>
-                          Max. Qty
-                      </TableCell>
-                    <TableCell>
-                          Min. Order Qty
-                      </TableCell>
+
                 </TableRow>
                 </TableHead>
                 <TableBody>
@@ -258,29 +263,14 @@ export default function Orders() {
                                         {table.name}
                                     </TableCell>
                                     <TableCell>
-                                        {table.categoryType}
+
+                                        {table.category}
                                     </TableCell>
+                                    <TableCell>{table.quantity}</TableCell>
                                     <TableCell>
                                         {table.description}
                                     </TableCell>
-                                    <TableCell>
-                                        {table.priorNeed}
-                                    </TableCell>
-                                    <TableCell>
-                                        {table.qtyType}
-                                    </TableCell>
-                                    <TableCell>
-                                        {table.qtyOnHand}
-                                    </TableCell>
-                                    <TableCell>
-                                        {table.minQty}
-                                    </TableCell>
-                                    <TableCell>
-                                        {table.maxQty}
-                                    </TableCell>
-                                    <TableCell>
-                                        {table.minOrderQty}
-                                    </TableCell>
+
                                 </TableRow>
                             ) 
                         })

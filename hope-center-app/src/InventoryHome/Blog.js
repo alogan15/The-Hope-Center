@@ -23,7 +23,9 @@ const mainFeaturedPost = {
   title: '',
   description:
    "",
-  image: require('/Users/jordaneldridge/dev/Hope Center/The-Hope-Center/hope-center-app/src/HCTitle.png'),
+
+  image: require('/Dev/The-Hope-Center/hope-center-app/src/HCTitle.png'),
+
   imageText: 'main image description',
   linkText: '',
 };
