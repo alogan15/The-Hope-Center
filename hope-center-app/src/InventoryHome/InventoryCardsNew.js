@@ -18,25 +18,37 @@ import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
 const tiers = [
   {
     title: 'Incoming Donations',
+<<<<<<< HEAD
+    image: require('../Images/incoming.jpg'),
+=======
 
     image: require('/Dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
 
+>>>>>>> 1b379a4782b903f56d6a68aa2a99bae6baf87021
     buttonText: <Link to='/donateform'><RoomServiceIcon sx={{ width:50, height: 50 }} /></Link>,
     buttonVariant: 'outlined',
   },
   {
     title: 'Inventory',
+<<<<<<< HEAD
+    image: require('../Images/incoming.jpg'),
+=======
 
     image: require('/Dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
 
+>>>>>>> 1b379a4782b903f56d6a68aa2a99bae6baf87021
     buttonText: <Link to='/inventory'><InventoryIcon sx={{ width:50, height: 50 }} /></Link>,
     buttonVariant: 'outlined',
   },
   {
     title: 'Participant Request',
+<<<<<<< HEAD
+    image: require('../Images/incoming.jpg'),
+=======
 
     image: require('/Dev/The-Hope-Center/hope-center-app/src/incoming.jpg'),
 
+>>>>>>> 1b379a4782b903f56d6a68aa2a99bae6baf87021
     buttonText: <Link to='/participantform'><RecordVoiceOverIcon sx={{ width:50, height: 50 }}/></Link>,
     buttonVariant: 'outlined',
   },
