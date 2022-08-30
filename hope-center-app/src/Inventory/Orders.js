@@ -164,6 +164,7 @@ const btn2={
   maxWidth:'5rem'
 }
 
+
 const handleSubmit = (event) => {
   console.log("submitted HERE")
   event.preventDefault();
@@ -176,18 +177,22 @@ const handleSubmit = (event) => {
 
 
 
+
 export default function Orders() {
     
     const [inventory, setInventory]= useState([]);
    
 
 
-   useEffect(() => {
-      inventoryService.getAllInventory().then((response) => {
-        setInventory(response.data)
-        console.log(response.data).catch(error => console.log(error));
-      })
-   }, [])
+    useEffect(()=> {
+        inventoryService.getAllInventory()
+        .then(res => {
+            setInventory(res.data);
+        })
+    }, [])
+  
+
+
 
 
     return (
@@ -202,6 +207,7 @@ export default function Orders() {
        noValidate
        autoComplete="off"
      >
+
 
  <>
        <h2 style={{
@@ -233,11 +239,13 @@ export default function Orders() {
                         Category Type
                     </TableCell>
                     <TableCell>
+
                       Quantitiy
                     </TableCell>
                     <TableCell>
                        Description
                     </TableCell>
+
                 </TableRow>
                 </TableHead>
                 <TableBody>
@@ -255,12 +263,14 @@ export default function Orders() {
                                         {table.name}
                                     </TableCell>
                                     <TableCell>
+
                                         {table.category}
                                     </TableCell>
                                     <TableCell>{table.quantity}</TableCell>
                                     <TableCell>
                                         {table.description}
                                     </TableCell>
+
                                 </TableRow>
                             ) 
                         })
