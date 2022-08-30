@@ -31,11 +31,11 @@ export const InventoryTable = () => {
 
     return (
         <div >
-            <Typography component="h1" variant="h3" style={title}>
+            {/* <Typography component="h1" variant="h3" style={title}>
             <b>The Hope Center</b>
-            </Typography>
+            </Typography> */}
            
-            <Typography>Current Inventory</Typography>
+            {/* <Typography>Current Inventory</Typography> */}
             <Table sx={{minWidth:700}}>
                 <TableHead sx={{}}>
                 <TableRow>

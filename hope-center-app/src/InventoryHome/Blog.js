@@ -5,17 +5,14 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
-// import FeaturedPost from './FeaturedPost';
-
-import Sidebar from './Sidebar';
 import Pricing from './InventoryCardsNew';
 
 const sections = [
   { title: 'Services', url: '#' },
   { title: 'How Can You Help', url: '#' },
-  { title: 'Send A Donation', url: '#' },
+  { title: 'Send A Donation', url: '/moneyform' },
   { title: 'Become A Volunteer', url: '#' },
-  { title: 'Donate Clothing', url: '#' },
+  { title: 'Donate Clothing', url: '/donateform' },
   { title: 'Other Donations', url: '#' },
 ];
 
@@ -33,22 +30,6 @@ const mainFeaturedPost = {
   imageText: 'main image description',
   linkText: '',
 };
-
-
-// const sidebar = {
-    
-//     social: [
-//       { name: 'DCHV', icon: GitHubIcon },
-//       { name: 'HHM', icon: TwitterIcon },
-//       { name: 'FaithfulFriends', icon: FacebookIcon },
-//       { name: 'Grace Transportation Services', icon: GitHubIcon },
-//       { name: 'Delaware Health & Social Services', icon: TwitterIcon },
-//       { name: 'Family Promise', icon: FacebookIcon },
-//       { name: 'HELP is here', icon: GitHubIcon },
-//       { name: 'Pe', icon: TwitterIcon },
-//       { name: 'FaithfulFriends', icon: FacebookIcon },
-//     ],
-//   };
 
 
 const theme = createTheme({
