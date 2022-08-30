@@ -16,7 +16,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import * as inventoryService from '../services/InventoryService';
 
-
+export default function NewIncoming() {
 const theme = createTheme({
   typography:{
       allVariants: {
@@ -35,11 +35,11 @@ const avatarStyle={
 
 
 
-export default function NewIncoming() {
+
   const navigate = useNavigate();
   const {id} = useParams();
   const [name, setName] = useState('')
-  const [categoryType, setCategoryType] = useState('')
+  const [category, setcategoryType] = useState('')
   const [description, setDescription] = useState('')
 
 const handleSubmit = (event) => {
@@ -48,7 +48,7 @@ const handleSubmit = (event) => {
   const data = new FormData(event.currentTarget);
   const inventory = {
     name: data.get('name'),
-    categoryType: data.get('categoryType'),
+    category: data.get('category'),
     description: data.get('description')
   };
 
@@ -112,12 +112,13 @@ const handleSubmit = (event) => {
                 required
                 fullWidth
                 name="category"
-                label="Category"
+                label="Category Type"
                 id="category"
                 autoComplete="category"
-                value={categoryType}
-                onChange= {(e) => setCategoryType(e.target.value)}
+                value={category}
+                onChange= {(e) => setcategoryType(e.target.value)}
               />
+              
               <TextField
                 margin="normal"
                 required
@@ -132,7 +133,7 @@ const handleSubmit = (event) => {
                 onChange= {(e) => setDescription(e.target.value)}
               />
               <Stack>
-              <Link to="/donatehome">
+              {/* <Link to="/donatehome"> */}
               <Button
                 type="submit"
                 variant="contained"
@@ -140,7 +141,7 @@ const handleSubmit = (event) => {
               >
                 Submit
               </Button>
-              </Link>
+              {/* </Link> */}
                 <Link to="/donatehome">
                     <Button>back</Button>
                  </Link>
