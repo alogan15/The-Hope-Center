@@ -23,7 +23,7 @@ export default function Chart() {
 
   return (
     <React.Fragment>
-      <img  alt="hopecenter" src={require('/Users/andrelogan/dev/The-Hope-Center/hope-center-app/src/HCTitle.png')}></img>
+      <img  alt="hopecenter" src={require('../Images/HCTitle.png')}></img>
     </React.Fragment>
   );
 }
