@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useEffect, useState} from 'react';
+import Typography from '@mui/material/Typography';
 import * as inventoryService from '../services/InventoryService';
 import {
     Table,
@@ -14,6 +15,10 @@ import {
 
   
 
+  const title={
+    color:'blue'
+}
+
 const btn2={
   color: 'white',
   backgroundColor:'black',
@@ -22,15 +27,15 @@ const btn2={
 }
 
 
-const handleSubmit = (event) => {
-  console.log("submitted HERE")
-  event.preventDefault();
-   const table = new FormData(event.currentTarget);
-  // const inventory = {
-  //   name: data.get('name'),
-  //   category: data.get('category'),
-  //   description: data.get('description')
-  };
+// const handleSubmit = (event) => {
+//   console.log("submitted HERE")
+//   event.preventDefault();
+
+
+//   const table = new FormData(event.currentTarget);
+
+
+//   };
 
 
 
@@ -69,7 +74,9 @@ export default function Orders() {
  <>
        <h2 style={{
          color: "white",
+         //textAlign:'center',
         marginLeft:'-3.5rem'
+         // font-family: "Roboto"
        }} >
          Current Inventory</h2>
       </>
@@ -77,6 +84,10 @@ export default function Orders() {
       <TextField id="outlined-basic" label="Enter Product Name..." variant="outlined" sx={{background:"white", borderRadius:"5%", position:'relative',left:"-30rem"}}/>
    
        </Box>
+            <Typography component="h1" variant="h3" style={title}>
+            <b>The Hope Center</b>
+            </Typography>
+            <Typography>Current Inventory</Typography>
             <Table sx={{minWidth:700}}>
                 <TableHead sx={{}}>
                 <TableRow>
