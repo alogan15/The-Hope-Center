@@ -6,6 +6,9 @@ import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 
+
+
+
 function MainFeaturedPost(props) {
   const { post } = props;
 
@@ -20,9 +23,9 @@ function MainFeaturedPost(props) {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundImage: `url(${post.image})`,
-        width: '60vw',
+        width:'48vw',
         height: '35vh',
-        marginLeft: '5rem'
+        marginLeft: 'rem'
       }}
     >
      

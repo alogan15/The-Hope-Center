@@ -8,7 +8,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import DropDown from './DropDown';
-
+import { Link } from 'react-router-dom';
+import { Stack } from '@mui/system';
 
 
 const theme = createTheme();
@@ -113,6 +114,7 @@ export default function SignUp() {
               <DropDown />
               </Grid>
             </Grid>
+            <Stack>
             <Button
               type="submit"
               variant="contained"
@@ -120,6 +122,10 @@ export default function SignUp() {
             >
               Create Account
             </Button>
+            <Link to="/donatehome">
+              <Button>back</Button>
+            </Link>
+            </Stack>
           </Box>
         </Box>
       </Container>

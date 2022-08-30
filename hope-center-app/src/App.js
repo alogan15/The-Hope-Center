@@ -11,7 +11,6 @@ import NewParticipant from './components/NewParticipant';
 import LoginSide from './components/LoginSide';
 
 
-
 function App() {
   
   return (

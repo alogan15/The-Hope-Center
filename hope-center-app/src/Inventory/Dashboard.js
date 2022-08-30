@@ -5,6 +5,7 @@ import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Chart from './Chart';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -97,9 +98,9 @@ function DashboardContent() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }} >
+            {/* <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }} >
             New Castle County Hope Center, Inc.
-          </Typography>
+          </Typography> */}
            
           </Toolbar>
         </AppBar>
@@ -138,7 +139,11 @@ function DashboardContent() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-             
+            <Grid item xs={12} md={8} lg={15}>
+
+                  <Chart />
+
+              </Grid>
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <Orders />
