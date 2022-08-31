@@ -209,7 +209,6 @@ export default function NewParticipant() {
               />
               <Stack>
 
-              {/* <Link to=""> */}
 
               <Button
                 type="submit"
@@ -219,7 +218,6 @@ export default function NewParticipant() {
                 Submit
               </Button>
 
-              {/* </Link> */}
 
                 <Link to="/donatehome">
                     <Button>back</Button>

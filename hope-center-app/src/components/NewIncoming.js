@@ -41,7 +41,7 @@ const avatarStyle={
   const [name, setName] = useState('')
   const [category, setcategoryType] = useState('')
   const [description, setDescription] = useState('')
-  // const [quantityType, setQuantityType] = useState('')
+ //  const [quantityType, setQuantityType] = useState('')
 
 const handleSubmit = (event) => {
   console.log("submitted HERE")
@@ -49,6 +49,7 @@ const handleSubmit = (event) => {
   const data = new FormData(event.currentTarget);
   const inventory = {
     name: data.get('name'),
+
     categoryType: data.get('categoryType'),
     description: data.get('description'),
     // quantityType: data.get('quantityType')
@@ -56,6 +57,7 @@ const handleSubmit = (event) => {
 
     category: data.get('category'),
     description: data.get('description')
+
   };
 
   inventoryService.createInventory(inventory)
@@ -117,9 +119,9 @@ const handleSubmit = (event) => {
                 margin="normal"
                 required
                 fullWidth
-                name="category"
+                name="categoryType"
                 label="Category Type"
-                id="category"
+                id="categoryType"
                 autoComplete="category"
                 value={category}
                 onChange= {(e) => setcategoryType(e.target.value)}
@@ -150,7 +152,6 @@ const handleSubmit = (event) => {
               /> */}
               <Stack>
 
-              {/* <Link to="/donatehome"> */}
 
               <Button
                 type="submit"
@@ -160,7 +161,6 @@ const handleSubmit = (event) => {
                 Submit
               </Button>
 
-              {/* </Link> */}
 
                 <Link to="/donatehome">
                     <Button>back</Button>
