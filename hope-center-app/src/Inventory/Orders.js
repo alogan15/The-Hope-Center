@@ -39,9 +39,6 @@ const handleSubmit = (event) => {
   };
 
 
-
-
-
 export default function Orders() {
     
   const [inventory, setInventory]= useState([]);
