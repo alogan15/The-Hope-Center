@@ -31,6 +31,10 @@ const title={
 const avatarStyle={
   color:'blue'
 }
+export default function NewIncoming() {
+
+
+
 
 const formValidationschema = yup.object({
   name: yup
@@ -50,23 +54,41 @@ const formValidationschema = yup.object({
   .required("Please select a category"),
 })
 
-export default function NewIncoming() {
+
   const navigate = useNavigate();
 
-const handleSubmit = (event) => {
-  console.log("submitted HERE")
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  const inventory = {
-    name: data.get('name'),
-    category: data.get('categoryType'),
-    description: data.get('description'),
-    //quantityType: data.get('quantityType')
+  const formik = useFormik({
+    initialValues:{
+      name:"",
+      description:"",
+      category:"",
+      quantity:"",
+    }, validationSchema: formValidationschema,
+    onSubmit:(values)=>{
+        axios.post('http://localhost:8080/api/vi/inventory',values)
+        .then(response=>{
+            console.log(response);
+            navigate("/inventory") ;
+        })
+    }
+})
 
-  };
 
 
-};
+// const handleSubmit = (event) => {
+//   console.log("submitted HERE")
+//   event.preventDefault();
+//   const data = new FormData(event.currentTarget);
+//   const inventory = {
+//     name: data.get('name'),
+//     category: data.get('categoryType'),
+//     description: data.get('description'),
+//     //quantityType: data.get('quantityType')
+
+//   };
+
+
+// };
 
 
 
