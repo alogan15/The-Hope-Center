@@ -28,26 +28,21 @@ const btn2={
 
 
 
-const handleSubmit = (event) => {
-  console.log("submitted HERE")
-  event.preventDefault();
-   const table = new FormData(event.currentTarget);
-  const inventory = {
-    name: data.get('name'),
-    category: data.get('category'),
-    description: data.get('description')
-  };
-
-
-
+// const handleSubmit = (event) => {
+//   console.log("submitted HERE")
+//   event.preventDefault();
+//    const table = new FormData(event.currentTarget);
+//   const inventory = {
+//     name: data.get('name'),
+//     category: data.get('category'),
+//     description: data.get('description')
+//   };
 
 
 export default function Orders() {
     
-    const [inventory, setInventory]= useState([]);
-   
-
-
+  const [inventory, setInventory]= useState([]);
+  
     useEffect(()=> {
         inventoryService.getAllInventory()
         .then(res => {
@@ -55,9 +50,6 @@ export default function Orders() {
         })
     }, [])
   
-
-
-
 
     return (
         <div >
@@ -144,5 +136,4 @@ export default function Orders() {
             </React.Fragment>
         </div>
     )
-}
 }

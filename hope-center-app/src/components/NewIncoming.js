@@ -12,11 +12,10 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Stack } from '@mui/system';
 import {useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import * as inventoryService from '../services/InventoryService';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import axios from 'axios';
 
-export default function NewIncoming() {
 const theme = createTheme({
   typography:{
       allVariants: {
@@ -32,40 +31,64 @@ const title={
 const avatarStyle={
   color:'blue'
 }
+export default function NewIncoming() {
 
 
+
+
+const formValidationschema = yup.object({
+  name: yup
+      .string("Name")
+      .required("An item name is required"),
+
+  description: yup
+      .string("description")
+      .required("A description is required"),
+
+  quantity: yup
+  .number("24")
+  .required("A quantity is required"),
+ 
+  category:yup
+  .string("category")
+  .required("Please select a category"),
+})
 
 
   const navigate = useNavigate();
-  const {id} = useParams();
-  const [name, setName] = useState('')
-  const [category, setcategoryType] = useState('')
-  const [description, setDescription] = useState('')
- //  const [quantityType, setQuantityType] = useState('')
 
-const handleSubmit = (event) => {
-  console.log("submitted HERE")
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  const inventory = {
-    name: data.get('name'),
+  const formik = useFormik({
+    initialValues:{
+      name:"",
+      description:"",
+      category:"",
+      quantity:"",
+    }, validationSchema: formValidationschema,
+    onSubmit:(values)=>{
+        axios.post('http://localhost:8080/api/vi/inventory',values)
+        .then(response=>{
+            console.log(response);
+            navigate("/inventory") ;
+        })
+    }
+})
 
-    categoryType: data.get('categoryType'),
-    description: data.get('description'),
-    // quantityType: data.get('quantityType')
 
 
-    category: data.get('category'),
-    description: data.get('description')
+// const handleSubmit = (event) => {
+//   console.log("submitted HERE")
+//   event.preventDefault();
+//   const data = new FormData(event.currentTarget);
+//   const inventory = {
+//     name: data.get('name'),
+//     category: data.get('categoryType'),
+//     description: data.get('description'),
+//     //quantityType: data.get('quantityType')
 
-  };
+//   };
 
-  inventoryService.createInventory(inventory)
-  .then(response => {
-    navigate("/inventory");
-  })
 
-};
+// };
 
 
 
@@ -85,7 +108,6 @@ const handleSubmit = (event) => {
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -102,7 +124,7 @@ const handleSubmit = (event) => {
           <Typography component="h3" variant="h4" style={title}>
             Incoming Donations
           </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -112,19 +134,23 @@ const handleSubmit = (event) => {
                 name="name"
                 autoComplete="name"
                 autoFocus
-                value={name}
-                onChange= {(e) => setName(e.target.value)}
+                value={formik.values.name}
+                onChange = {formik.handleChange}
+                error= {formik.touched.name && Boolean(formik.errors.name)}
+                helperText= {formik.touched.name && formik.errors.name}
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                name="categoryType"
-                label="Category Type"
-                id="categoryType"
+                name="category"
+                label="Category"
+                id="category"
                 autoComplete="category"
-                value={category}
-                onChange= {(e) => setcategoryType(e.target.value)}
+                value={formik.values.category}
+                onChange = {formik.handleChange}
+                error= {formik.touched.category && Boolean(formik.errors.category)}
+                helperText= {formik.touched.category && formik.errors.category}
               />
               
               <TextField
@@ -137,19 +163,24 @@ const handleSubmit = (event) => {
                 label="Description"
                 id="description"
                 autoComplete="description"
-                value={description}
-                onChange= {(e) => setDescription(e.target.value)}
+                value={formik.values.description}
+                onChange = {formik.handleChange}
+                error= {formik.touched.description && Boolean(formik.errors.description)}
+                helperText= {formik.touched.description && formik.errors.description}
               />
-              {/* <TextField
+
+               <TextField
                 margin="normal"
                 required
-                name="quantityType"
-                label="Quantity Type"
-                id="quantityType"
-                autoComplete="quantityType"
-                value={quantityType}
-                onChange= {(e) => setQuantityType(e.target.value)}
-              /> */}
+                name="quantity"
+                label="quantity"
+                id="quantity"
+                autoComplete="quantity"
+                value={formik.values.quantity}
+                onChange = {formik.handleChange}
+                error= {formik.touched.quantity && Boolean(formik.errors.quantity)}
+                helperText= {formik.touched.quantity && formik.errors.quantity}
+              /> 
               <Stack>
 
 
