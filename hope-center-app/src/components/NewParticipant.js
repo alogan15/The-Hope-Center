@@ -11,6 +11,9 @@ import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Stack } from '@mui/system';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import axios from 'axios';
 
 const theme = createTheme({
     typography:{
@@ -30,15 +33,55 @@ const avatarStyle={
   color:'blue'
 }
 
+const formValidationschema = yup.object({
+  firstName: yup
+      .string("Jordan")
+      .required(" Your first name is required"),
+
+  lastName: yup
+      .string("Eldridge")
+      .required(" Your last name is required"),
+
+  email: yup
+  .string("Jordan@codedifferently.com")
+  .email("Invalid email format")
+  .required("Email is required"),
+
+  roomNumber: yup
+  .string("13")
+  .required("Room Number is required"),
+  
+  familySize:yup
+  .string("3")
+  .required("Family Size is Required"),
+
+  itemsNeeded:yup
+  .string("Diapers , wipes , food")
+  .required("Please list your items"),
+
+
+})
+
 export default function NewParticipant() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+  const formik = useFormik({
+    initialValues: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        roomNumber: "",
+        familySize: "",
+        itemsNeeded: "",
+
+    },
+    validationSchema: formValidationschema,
+    onSubmit:(values)=>{
+        axios.post('http://localhost:8080/api/vi/productRequest',values)
+        .then(response=>{
+            console.log(response)
+        })
+    }
+})
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -73,18 +116,21 @@ export default function NewParticipant() {
             <Typography component="h1" variant="h4" style={title}>
             Participant Request
          </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
             <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
-              <TextField
+            <TextField
                 margin="normal"
                 required
                 fullWidth
-                id="email"
+                name="firstName"
                 label="First Name"
-                name="email"
-                autoComplete="email"
-                autoFocus
+                id="firstName"
+                autoComplete="firstName"
+                value={formik.values.firstName}
+                  onChange = {formik.handleChange}
+                  error= {formik.touched.firstName && Boolean(formik.errors.firstName)}
+                  helperText= {formik.touched.firstName && formik.errors.firstName}
               />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -92,10 +138,14 @@ export default function NewParticipant() {
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="lastName"
                 label="Last Name"
-                id="password"
-                autoComplete="current-password"
+                id="lastName"
+                autoComplete="lastName"
+                value={formik.values.lastName}
+                  onChange = {formik.handleChange}
+                  error= {formik.touched.lastName && Boolean(formik.errors.lastName)}
+                  helperText= {formik.touched.lastName && formik.errors.lastName}
               />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -103,10 +153,14 @@ export default function NewParticipant() {
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="roomNumber"
                 label="Room Number"
-                id="password"
-                autoComplete="current-password"
+                id="roomNumber"
+                autoComplete="roomNumber"
+                value={formik.values.roomNumber}
+                onChange = {formik.handleChange}
+                error= {formik.touched.roomNumber && Boolean(formik.errors.roomNumber)}
+                helperText= {formik.touched.roomNumber && formik.errors.roomNumber}
               />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -114,10 +168,14 @@ export default function NewParticipant() {
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="familySize"
                 label="Family Size"
-                id="password"
-                autoComplete="current-password"
+                id="familySize"
+                autoComplete="familySize"
+                value={formik.values.familySize}
+                onChange = {formik.handleChange}
+                error= {formik.touched.familySize && Boolean(formik.errors.familySize)}
+                helperText= {formik.touched.familySize && formik.errors.familySize}
               />
               </Grid>
               </Grid>
@@ -125,10 +183,14 @@ export default function NewParticipant() {
                 margin="normal"
                 required
                 fullWidth
-                name="password"
+                name="email"
                 label="Email"
-                id="password"
-                autoComplete="current-password"
+                id="email"
+                autoComplete="email"
+                value={formik.values.email}
+                onChange = {formik.handleChange}
+                error= {formik.touched.email && Boolean(formik.errors.email)}
+                helperText= {formik.touched.email && formik.errors.email}
               />
               <TextField
                 margin="normal"
@@ -136,13 +198,19 @@ export default function NewParticipant() {
                 fullWidth
                 rows={5}
                 multiline
-                name="password"
+                name="itemsNeeded"
                 label="Items Needed"
-                id="password"
-                autoComplete="current-password"
+                id="itemsNeeded"
+                autoComplete="itemsNeeded"
+                value={formik.values.itemsNeeded}
+                onChange = {formik.handleChange}
+                error= {formik.touched.itemsNeeded && Boolean(formik.errors.itemsNeeded)}
+                helperText= {formik.touched.itemsNeeded && formik.errors.itemsNeeded}
               />
               <Stack>
-              
+
+              {/* <Link to=""> */}
+
               <Button
                 type="submit"
                 variant="contained"
@@ -150,7 +218,9 @@ export default function NewParticipant() {
               >
                 Submit
               </Button>
-             
+
+              {/* </Link> */}
+
                 <Link to="/donatehome">
                     <Button>back</Button>
                  </Link>
