@@ -42,10 +42,8 @@ const btn2={
 
 export default function Orders() {
     
-    const [inventory, setInventory]= useState([]);
-   
-
-
+  const [inventory, setInventory]= useState([]);
+  
     useEffect(()=> {
         inventoryService.getAllInventory()
         .then(res => {
@@ -53,9 +51,6 @@ export default function Orders() {
         })
     }, [])
   
-
-
-
 
     return (
         <div >
