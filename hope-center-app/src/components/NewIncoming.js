@@ -49,9 +49,14 @@ const handleSubmit = (event) => {
   const data = new FormData(event.currentTarget);
   const inventory = {
     name: data.get('name'),
-    category: data.get('categoryType'),
+
+    categoryType: data.get('categoryType'),
     description: data.get('description'),
-    //quantityType: data.get('quantityType')
+    // quantityType: data.get('quantityType')
+
+
+    category: data.get('category'),
+    description: data.get('description')
 
   };
 
@@ -147,6 +152,7 @@ const handleSubmit = (event) => {
               /> */}
               <Stack>
 
+
               <Button
                 type="submit"
                 variant="contained"
@@ -154,6 +160,7 @@ const handleSubmit = (event) => {
               >
                 Submit
               </Button>
+
 
                 <Link to="/donatehome">
                     <Button>back</Button>
