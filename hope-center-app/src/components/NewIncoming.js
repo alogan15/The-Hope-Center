@@ -53,26 +53,24 @@ const formValidationschema = yup.object({
 export default function NewIncoming() {
   const navigate = useNavigate();
 
-const formik = useFormik({
-  initialValues: {
-      name: "",
-      description: "",
-      category: "",
-      quantity: "",
-  },
-  validationSchema: formValidationschema,
-  onSubmit:(values)=>{
-      axios.post('http://localhost:8080/api/vi/inventory',values)
-      .then(response=>{
-          console.log(response);
-          
-               navigate("/inventory");
-      }
-      )
-  }
-})
+const handleSubmit = (event) => {
+  console.log("submitted HERE")
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const inventory = {
+    name: data.get('name'),
+    category: data.get('categoryType'),
+    description: data.get('description'),
+    //quantityType: data.get('quantityType')
 
-return (
+  };
+
+
+};
+
+
+
+  return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
@@ -163,6 +161,7 @@ return (
               /> 
               <Stack>
 
+
               <Button
                 type="submit"
                 variant="contained"
@@ -170,6 +169,7 @@ return (
               >
                 Submit
               </Button>
+
 
                 <Link to="/donatehome">
                     <Button>back</Button>

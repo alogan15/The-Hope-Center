@@ -27,15 +27,17 @@ const btn2={
 }
 
 
-// const handleSubmit = (event) => {
-//   console.log("submitted HERE")
-//   event.preventDefault();
 
+const handleSubmit = (event) => {
+  console.log("submitted HERE")
+  event.preventDefault();
+   const table = new FormData(event.currentTarget);
+  const inventory = {
+    name: data.get('name'),
+    category: data.get('category'),
+    description: data.get('description')
+  };
 
-//   const table = new FormData(event.currentTarget);
-
-
-//   };
 
 
 
@@ -137,4 +139,5 @@ export default function Orders() {
             </React.Fragment>
         </div>
     )
+}
 }
