@@ -16,6 +16,9 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
 
+
+
+
 const theme = createTheme({
   typography:{
       allVariants: {
@@ -31,7 +34,11 @@ const title={
 const avatarStyle={
   color:'blue'
 }
-export default function NewIncoming() {
+
+
+
+export default function NewIncoming(){
+
 
 
 
@@ -124,7 +131,8 @@ const formValidationschema = yup.object({
           <Typography component="h3" variant="h4" style={title}>
             Incoming Donations
           </Typography>
-            <Box component="form" noValidate onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate onSubmit={formik.handleSubmit} sx={{ mt: 1 }} >
+        
               <TextField
                 margin="normal"
                 required
@@ -138,7 +146,10 @@ const formValidationschema = yup.object({
                 onChange = {formik.handleChange}
                 error= {formik.touched.name && Boolean(formik.errors.name)}
                 helperText= {formik.touched.name && formik.errors.name}
+                
+                
               />
+            
               <TextField
                 margin="normal"
                 required

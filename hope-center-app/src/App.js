@@ -9,6 +9,8 @@ import Dashboard from './Inventory/Dashboard';
 import NewIncoming from './components/NewIncoming';
 import NewParticipant from './components/NewParticipant';
 import LoginSide from './components/LoginSide';
+import DonationItems from './DonationItems';
+import AutoComplete from './components/AutoCompleteText';
 
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgotpwd" element={<ForgotPwd />} />
           <Route path="/verify" element={<Verify />} />
-          <Route path="/donateform" element={<NewIncoming />} />
+          <Route path="/donateform" element={<NewIncoming items={DonationItems} />} />
           <Route path="/moneyform" element={<MonetaryDonate />} />
           <Route path="/donatehome" element={<Blog />} />
           <Route path="/inventory" element={<Dashboard />} />
